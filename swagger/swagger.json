@@ -1,0 +1,20 @@
+{
+    "swagger" : "2.0",
+    "info" : {
+        "title" : "API documentation",
+        "description" : "Crud operations",
+        "version": "1.0.0"
+    },
+    "paths" : {
+        "/api/customers/get-customers" : {
+            "get" : {
+                "summary": "Fetch all customer data",
+                "responses" : {
+                    "200" : {
+                        "description" : "Customer data"
+                    }
+                }
+            }
+        }
+    }
+}
