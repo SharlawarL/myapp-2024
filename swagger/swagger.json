@@ -5,10 +5,86 @@
         "description" : "Crud operations",
         "version": "1.0.0"
     },
+    "host": "localhost:3000",
+    "schemes" : "http",
     "paths" : {
         "/api/customers/get-customers" : {
             "get" : {
                 "summary": "Fetch all customer data",
+                "tags": ["Customer"],
+                "responses" : {
+                    "200" : {
+                        "description" : "Customer data"
+                    }
+                }
+            }
+        },
+        "/api/customers/add-customers" : {
+            "post" : {
+                "summary": "Create customer data",
+                "tags": ["Customer"],
+                "parameters" : [
+                    {
+                        "in": "body",
+                        "name" : "Customers",
+                        "schema" : {
+                            "type": "object",
+                            "properties" : {
+                                "id" : {"type": "string"},
+                                "name" : {"type": "string"},
+                                "address" : {"type": "string"}
+                            }
+                        }
+                    }
+                ],
+                "responses" : {
+                    "200" : {
+                        "description" : "Customer data"
+                    }
+                }
+            }
+        },
+        "/api/customers/update-customers/{id}" : {
+            "put" : {
+                "summary": "Update customer data",
+                "tags": ["Customer"],
+                "parameters" : [
+                    {
+                        "in" : "path",
+                        "name": "id",
+                        "type": "integer"
+                    },
+                    {
+                        "in": "body",
+                        "name" : "Customers",
+                        "schema" : {
+                            "type": "object",
+                            "properties" : {
+                                "id" : {"type": "string"},
+                                "name" : {"type": "string"},
+                                "address" : {"type": "string"}
+                            }
+                        }
+                    }
+                ],
+                "responses" : {
+                    "200" : {
+                        "description" : "Customer data"
+                    }
+                }
+            }
+        },
+        "/api/customers/delete-customers/{id}" : {
+            "delete" : {
+                "summary": "Delete customer data",
+                "tags": ["Customer"],
+                "parameters" : [
+                    {
+                        "in" : "path",
+                        "name": "id",
+                        "type": "integer"
+                    }
+                ],
                 "responses" : {
                     "200" : {
                         "description" : "Customer data"
