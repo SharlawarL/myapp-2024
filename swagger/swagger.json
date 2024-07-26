@@ -61,7 +61,7 @@
         },
         "/api/customers/get-customers" : {
             "get" : {
-                "security" : [{"bearerAuth" : []}],
+                "security": [{ "bearerAuth": [] }],
                 "summary": "Fetch all customer data",
                 "tags": ["Customer"],
                 "responses" : {
@@ -147,5 +147,13 @@
                 }
             }
         }
-    }
+    },
+    "securityDefinitions": {
+        "bearerAuth": {
+          "type": "apiKey",
+          "name": "Authorization",
+          "in": "header",
+          "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
+        }
+      }
 }
