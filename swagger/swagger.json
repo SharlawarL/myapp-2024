@@ -8,8 +8,60 @@
     "host": "localhost:3000",
     "schemes" : "http",
     "paths" : {
+        "/api/auth/login" : {
+            "post" : {
+                "summary": "Employee Login",
+                "tags": ["Auth"],
+                "parameters" : [
+                    {
+                        "in": "body",
+                        "name" : "Employee",
+                        "schema" : {
+                            "type": "object",
+                            "properties" : {
+                                "email" : {"type": "string"},
+                                "password" : {"type": "string"}
+                            }
+                        }
+                    }
+                ],
+                "responses" : {
+                    "200" : {
+                        "description" : "Customer data"
+                    }
+                }
+            }
+        },
+        "/api/auth/register" : {
+            "post" : {
+                "summary": "Register employee",
+                "tags": ["Auth"],
+                "parameters" : [
+                    {
+                        "in": "body",
+                        "name" : "Employee",
+                        "schema" : {
+                            "type": "object",
+                            "properties" : {
+                                "firstname" : {"type": "string"},
+                                "lastname" : {"type": "string"},
+                                "mobile" : {"type": "string"},
+                                "email" : {"type": "string"},
+                                "password" : {"type": "string"}
+                            }
+                        }
+                    }
+                ],
+                "responses" : {
+                    "200" : {
+                        "description" : "Customer data"
+                    }
+                }
+            }
+        },
         "/api/customers/get-customers" : {
             "get" : {
+                "security" : [{"bearerAuth" : []}],
                 "summary": "Fetch all customer data",
                 "tags": ["Customer"],
                 "responses" : {
@@ -23,6 +75,7 @@
             "post" : {
                 "summary": "Create customer data",
                 "tags": ["Customer"],
+                "security" : [{"Bearer" : []}],
                 "parameters" : [
                     {
                         "in": "body",
@@ -48,6 +101,7 @@
             "put" : {
                 "summary": "Update customer data",
                 "tags": ["Customer"],
+                "security" : [{"Bearer" : []}],
                 "parameters" : [
                     {
                         "in" : "path",
@@ -78,6 +132,7 @@
             "delete" : {
                 "summary": "Delete customer data",
                 "tags": ["Customer"],
+                "security" : [{"Bearer" : []}],
                 "parameters" : [
                     {
                         "in" : "path",
